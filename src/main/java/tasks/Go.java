@@ -3,6 +3,7 @@ package tasks;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import userinterfaces.BusinessPage;
 import userinterfaces.DashboardPage;
 
 public class Go {
@@ -30,5 +31,10 @@ public class Go {
                 Click.on(DashboardPage.navMenu("Meeting")),
                 Click.on(DashboardPage.navMenu("Meetings"))
         );
+    }
+
+    public static Performable toNewMeeting() {
+        return Task.where("{Navigate} to new Meeting",
+                Click.on(BusinessPage.btnName("New Meeting")));
     }
 }

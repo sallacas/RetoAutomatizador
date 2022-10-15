@@ -23,5 +23,4 @@ public class BusinessPage {
             .located(By.cssSelector("input[role='combobox']"));
     public static final Target BTN_REFRESH = Target.the("Button to refresh business units")
             .located(By.cssSelector("span.button-inner > i.fa-refresh"));
-
 }

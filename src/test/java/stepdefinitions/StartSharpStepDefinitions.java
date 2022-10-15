@@ -6,10 +6,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
 
+import models.setdata.MeetingData;
 import org.hamcrest.Matchers;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import questions.ValidateBusiness;
+import questions.ValidateMeeting;
 import tasks.*;
 import questions.ValidateLogin;
 
@@ -48,10 +50,19 @@ public class StartSharpStepDefinitions {
         OnStage.theActorInTheSpotlight().attemptsTo(Go.toLoginPage());
     }
 
-    @When("he is in the dashboard, create the meeting for {string}")
-    public void heIsInTheDashboardCreateTheMeetingFor(String arg0) {
+    @When("he is in the dashboard, create the meeting")
+    public void heIsInTheDashboardCreateTheMeetingFor(DataTable table) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                Go.toMeetings()
+                Go.toMeetings(),
+                Go.toNewMeeting(),
+                Meeting.createWith(MeetingData.setData(table).get(0)),
+                Meeting.saveMeeting(),
+                Meeting.refreshMeetings()
         );
+    }
+
+    @Then("he verifies that the meeting {string} is created correctly")
+    public void heVerifiesThatTheMeetingIsCreatedCorrectly(String nameMeeting) {
+        OnStage.theActorInTheSpotlight().should(seeThat(ValidateMeeting.isCreated(nameMeeting),Matchers.equalTo(true)));
     }
 }

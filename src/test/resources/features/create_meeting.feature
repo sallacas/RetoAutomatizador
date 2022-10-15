@@ -11,7 +11,6 @@ Feature: I as user of StartSharp
       | user  | password |
       | admin | serenity |
 
-  #gradlew clean test aggregate -Dcucumber.options="--tags @MEEEEEEEEEEEEEEO"
   @Business
   Scenario: Successful business create
     When he is in the dashboard, create the business "KOI" - "Technology » Test"

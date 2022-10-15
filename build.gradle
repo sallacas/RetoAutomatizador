@@ -85,6 +85,7 @@ test {
         gradle.startParameter.continueOnFailure = true
         testLogging.showStandardStreams = true
         systemProperties System.getProperties()
-        systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+        //systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+        systemProperty "cucumber.options", System.getProperty("cucumber.options")
     }
 }
