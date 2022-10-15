@@ -1,0 +1,12 @@
+
+# Default ignored files
+
+/.idea
+/target
+/.gradle/
+/.scannerwork/
+/.sonar/
+/.settings/
+.gitlab-ci.yml
+build/
+
