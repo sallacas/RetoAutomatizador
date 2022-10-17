@@ -5,7 +5,12 @@
 
 trigger:
   - master
-
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-latest
+    
 steps:
 
   - task: Gradle@3
