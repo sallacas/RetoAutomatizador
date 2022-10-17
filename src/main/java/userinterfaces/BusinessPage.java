@@ -13,7 +13,7 @@ public class BusinessPage {
     }
     public static Target businessLink(String name){
         return Target.the("Link of the business "+name)
-                .located(By.xpath("//*[@data-item-type='Pro.Organization.BusinessUnit' and text()='"+name+"']"));
+                .located(By.xpath("//a[contains(text(),'"+name+"')]"));
     }
     public static final Target TXT_NAME_BUSINESS = Target.the("Input text for name business")
             .located(By.name("Name"));
@@ -22,5 +22,5 @@ public class BusinessPage {
     public static final Target TXT_PARENT_UNIT = Target.the("Input text for find Parent Unit")
             .located(By.cssSelector("input[role='combobox']"));
     public static final Target BTN_REFRESH = Target.the("Button to refresh business units")
-            .located(By.cssSelector("span.button-inner > i.fa-refresh"));
+            .located(By.cssSelector("span:has(i.fa-refresh)"));
 }

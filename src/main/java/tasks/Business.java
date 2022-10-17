@@ -29,7 +29,8 @@ public class Business implements Task {
                 Click.on(BusinessPage.DROPDOWN_PARENT_UNIT).then(
                     SendKeys.of(parentUnit).into(BusinessPage.TXT_PARENT_UNIT).thenHit(Keys.ENTER)
                 ),
-                Click.on(BusinessPage.btnName("Save"))
+                Click.on(BusinessPage.btnName("Save")),
+                Click.on(BusinessPage.BTN_REFRESH)
         );
     }
 }
