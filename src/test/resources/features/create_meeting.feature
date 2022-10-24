@@ -10,6 +10,7 @@ Feature: I as user of StartSharp
     Given user in the home page
       | user  | password |
       | admin | serenity |
+    Then validate login
 
   @Business
   Scenario: Successful business create

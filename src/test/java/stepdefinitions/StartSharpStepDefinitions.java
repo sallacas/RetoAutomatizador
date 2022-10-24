@@ -32,10 +32,13 @@ public class StartSharpStepDefinitions {
         OnStage.theActorCalled(Constantes.ACTOR).wasAbleTo(OpenBrowser.url());
         //Do login
         OnStage.theActorInTheSpotlight().attemptsTo(Login.credenciales(LoginData.setData(table).get(0)));
+
+    }
+    @Then("validate login")
+    public void validateLogin() {
         //Validate login
         OnStage.theActorInTheSpotlight().should(seeThat(ValidateLogin.value(),Matchers.equalTo("Dashboard")));
     }
-
     @When("he is in the dashboard, create the business {string} - {string}")
     public void heIsInTheDashboardCreateTheBusiness(String business, String parenUnit) {
         OnStage.theActorInTheSpotlight().attemptsTo(
